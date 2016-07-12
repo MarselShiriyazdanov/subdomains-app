@@ -15,6 +15,7 @@ feature "Sign In" do
     sign_in(user.email, user.password)
 
     expect(page).to have_content("Sign out")
+    expect(page.current_url).to include(user.company.name)
   end
 
   scenario "Visitor signs in with invalid credentials" do
