@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  validates :name, presence: true, exclusion: { in: %w(www), message: "%{value} is reserved." }
+  validates :name, presence: true, uniqueness: true, exclusion: { in: %w(www) }
 
   has_many :users
 end
