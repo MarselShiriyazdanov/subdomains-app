@@ -1,6 +1,10 @@
-.row
+.post-title.row
   h2
-    = post.title
-.row
+    = post.link_to_post
+  .post-edit-link
+    - if policy(post).edit?
+      = post.post_edit_link
+
+.post-text.row
   p
-    = post.text
+   = post.text

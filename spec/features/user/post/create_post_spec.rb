@@ -20,6 +20,6 @@ feature "Create post" do
     fill_form(:post, post_attributes.slice(:title))
     click_button "Create Post"
 
-    expect(page).to have_content(" Textcan't be blank")
+    expect(page).to have_content("Textcan't be blank")
   end
 end

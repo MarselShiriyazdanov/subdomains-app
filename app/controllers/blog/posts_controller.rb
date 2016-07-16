@@ -3,6 +3,12 @@ module Blog
     expose(:posts) { current_user.company.posts }
     expose_decorated :post, ancestor: :posts, attributes: :post_params
 
+    def update
+      authorize post
+      post.save
+      respond_with(post)
+    end
+
     def create
       post.user = current_user
       post.save

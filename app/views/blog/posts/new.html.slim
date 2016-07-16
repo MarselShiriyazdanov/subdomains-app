@@ -1,10 +1,4 @@
 .row
   h1 New Post
-.row
-  = simple_form_for(post) do |f|
-    .row
-      = f.input :title
-    .row
-      = f.input :text
-    .row
-      = f.submit class: "button"
+
+= render "form"

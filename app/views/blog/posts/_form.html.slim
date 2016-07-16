@@ -1,0 +1,8 @@
+.row
+  = simple_form_for(post) do |f|
+    .row
+      = f.input :title
+    .row
+      = f.input :text, as: :text
+    .row
+      = f.submit class: "button"
