@@ -1,2 +1,9 @@
-h1
-  = company.name
+.blog_header
+  .row
+    .small-3.column
+      h1 = company.header
+    .small-1.column
+      = link_to "create new post", new_post_path
+
+.blog_posts
+  = render partial: "blog/posts/post", collection: posts

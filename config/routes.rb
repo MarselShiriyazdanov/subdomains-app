@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
   # resources :comments
-  # resources :posts
   # resources :companies
 
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   constraints(ApexDomain) do
-    get "/" => "pages#home"
+    get "/", to: "pages#home"
   end
 
   constraints(Subdomain) do
-    get "/" => "companies#show"
+    authenticate :user do
+      get "/", to: "companies#show"
+
+      scope module: "blog" do
+        resources :posts
+      end
+    end
   end
 
   root to: "pages#home"
