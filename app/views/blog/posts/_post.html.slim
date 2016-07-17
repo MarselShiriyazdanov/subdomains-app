@@ -2,7 +2,7 @@
   h2
     = post.link_to_post
   .post-edit-link
-    - if policy(post).edit?
+    - if policy(post).update?
       = post.post_edit_link
 
 .post-text.row

@@ -1,7 +1,8 @@
 module Blog
   class PostsController < ApplicationController
-    expose(:posts) { current_user.company.posts }
-    expose_decorated :post, ancestor: :posts, attributes: :post_params
+    expose_decorated(:posts) { current_user.company.posts }
+    expose_decorated(:post, ancestor: :posts, attributes: :post_params)
+    expose_decorated(:comments) { post.comments }
 
     def update
       authorize post

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  # resources :comments
-  # resources :companies
-
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   constraints(ApexDomain) do
@@ -13,7 +10,9 @@ Rails.application.routes.draw do
       get "/", to: "companies#show"
 
       scope module: "blog" do
-        resources :posts
+        resources :posts, except: :destroy do
+          resources :comments, except: :destroy
+        end
       end
     end
   end

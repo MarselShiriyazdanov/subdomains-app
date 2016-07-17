@@ -1,0 +1,6 @@
+.row
+  .small-10.column
+    p = comment.text
+  .small-2.column
+    - if policy(comment).update?
+      = link_to "edit comment", edit_post_comment_path(post, comment)

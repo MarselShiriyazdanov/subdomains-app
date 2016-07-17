@@ -8,4 +8,8 @@ class PostDecorator < ApplicationDecorator
   def post_edit_link
     h.link_to "edit post", h.edit_post_path(object)
   end
+
+  def comments_count
+    h.pluralize object.comments.count, "comment"
+  end
 end

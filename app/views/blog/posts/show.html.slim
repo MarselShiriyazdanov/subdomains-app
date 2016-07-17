@@ -1,1 +1,10 @@
 = render "post"
+
+.post-footer.row
+  .small-2.columns
+    = post.comments_count
+  .small-10.columns
+    = link_to "add comment", new_post_comment_path(post)
+
+.post-comments.row
+  = render partial: "blog/comments/comment", collection: comments

@@ -5,4 +5,11 @@ class ApplicationPolicy
     @user = user
     @record = record.to_model
   end
+
+  private
+
+  def user_is_company_owner?
+    # we assume that there is no way to bypass Blog::ApplicationController#check_domain!
+    user.owner?
+  end
 end
