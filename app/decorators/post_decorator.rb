@@ -1,5 +1,6 @@
 class PostDecorator < ApplicationDecorator
   delegate_all
+  delegate :value, to: :rating, allow_nil: true
 
   def link_to_post
     h.link_to title, h.post_path(object)
@@ -11,5 +12,9 @@ class PostDecorator < ApplicationDecorator
 
   def comments_count
     h.pluralize object.comments.count, "comment"
+  end
+
+  def rating_value
+    value || 0
   end
 end

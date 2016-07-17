@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       scope module: "blog" do
         resources :posts, except: :destroy do
           resources :comments, except: :destroy
+          resources :ratings, only: :create
         end
       end
     end

@@ -11,3 +11,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
 end
+
+Capybara::Webkit.configure do |config|
+  config.allow_url("lvh.me")
+end

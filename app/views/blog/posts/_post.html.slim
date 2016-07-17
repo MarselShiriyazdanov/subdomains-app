@@ -4,6 +4,8 @@
   .post-edit-link
     - if policy(post).update?
       = post.post_edit_link
+  .post-rating.right
+    .rateit data-rateit-value=post.rating_value data-rateit-resetable=0 data-rateit-step=1 data-post-id=post.id
 
 .post-text.row
   p

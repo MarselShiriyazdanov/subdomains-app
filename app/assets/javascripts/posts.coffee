@@ -1,3 +1,22 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+class App.RatingUpdater
+  constructor: (@$el) ->
+    @$rateWidget = @$el.find(".rateit")
+    @_bindEvents()
+
+  _bindEvents: ->
+    @_onRated()
+
+  _onRated: ->
+    ratingUpdater = @
+    @$rateWidget.on "rated", (_, rating) ->
+      postId = $(@).data("post-id")
+
+      ratingUpdater._updateRating(rating, postId)
+
+  _updateRating: (rating, post_id) ->
+    $.ajax
+      method: "POST"
+      url: "/posts/#{post_id}/ratings"
+      data: { value: rating }
+
+new App.RatingUpdater($(".post-rating"))

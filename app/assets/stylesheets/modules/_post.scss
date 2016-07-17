@@ -11,3 +11,21 @@
 .post-footer {
   margin-bottom: 40px;
 }
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+
+  > span:hover::before {
+    position: absolute;
+
+    content: "\2605";
+  }
+
+  > span:hover::before,
+  > span:hover ~ span::before {
+    position: absolute;
+
+    content: "\2605";
+  }
+}
