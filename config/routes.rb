@@ -14,6 +14,8 @@ Rails.application.routes.draw do
           resources :comments, except: :destroy
           resources :ratings, only: :create
         end
+
+        resources :users, only: :index
       end
     end
   end

@@ -1,0 +1,28 @@
+.search-form.row
+  = simple_form_for :user, method: :get do |f|
+    .small-3.columns
+      = f.input :first_name, required: false
+    .small-3.columns
+      = f.input :last_name, required: false
+    .small-2.columns
+      = f.input :email, required: false
+    .small-2.columns
+      = f.input :minimal_rating, as: :select, collection: (0..5).to_a, required: false, selected: 0
+    .small-2.columns
+      = f.button :submit, "search", class: "tiny"
+.users-table.row
+  .small-12.columns
+    table
+      thead
+        tr
+          th Firstname
+          th Lastname
+          th Posts count
+          th Avg. posts rating
+      tbody
+        - users.each do |user|
+          tr
+            td = user.first_name
+            td = user.last_name
+            td = user.posts_count
+            td = user.average_posts_rating
