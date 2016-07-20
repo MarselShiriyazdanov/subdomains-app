@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :posts
+    resources :comments
+    resources :ratings
+    resources :companies
+
+    root to: "users#index"
+  end
+
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   constraints(ApexDomain) do

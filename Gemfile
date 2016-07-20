@@ -15,6 +15,7 @@ gem "sass-rails", "~> 5.0.0"
 gem "skim"
 gem "therubyracer", platforms: :ruby
 gem "uglifier", ">= 2.7.2"
+gem "bourbon", "~> 4.2"
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery.rateit", "1.0.22"
@@ -28,6 +29,7 @@ gem "simple_form"
 gem "slim"
 
 # all other gems
+gem "administrate", "~> 0.2.2"
 gem "decent_decoration"
 gem "decent_exposure"
 gem "devise"
