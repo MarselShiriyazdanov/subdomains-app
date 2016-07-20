@@ -15,7 +15,11 @@ gem "sass-rails", "~> 5.0.0"
 gem "skim"
 gem "therubyracer", platforms: :ruby
 gem "uglifier", ">= 2.7.2"
-gem "rails-assets-jquery.rateit", "1.0.22", source: "https://rails-assets.org"
+
+source "https://rails-assets.org" do
+  gem "rails-assets-jquery.rateit", "1.0.22"
+  gem "rails-assets-jquery.tablesorter"
+end
 
 # views
 gem "active_link_to"

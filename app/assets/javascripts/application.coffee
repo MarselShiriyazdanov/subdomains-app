@@ -7,6 +7,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery.rateit
+#= require jquery.tablesorter
 #= require foundation
 #= require current_user
 #= require skim

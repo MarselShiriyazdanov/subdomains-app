@@ -229,6 +229,8 @@ GEM
     rails-assets-jquery (2.2.4)
     rails-assets-jquery.rateit (1.0.22)
       rails-assets-jquery (>= 1.6)
+    rails-assets-jquery.tablesorter (2.26.6)
+      rails-assets-jquery (>= 1.2.6)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -420,6 +422,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (= 4.2.6)
   rails-assets-jquery.rateit (= 1.0.22)!
+  rails-assets-jquery.tablesorter!
   rails-erd
   rails_stdout_logging
   responders
