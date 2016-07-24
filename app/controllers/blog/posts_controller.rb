@@ -13,7 +13,7 @@ module Blog
     def create
       post.user = current_user
       post.save
-      respond_with post
+      respond_with(post)
     end
 
     private

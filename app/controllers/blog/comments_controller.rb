@@ -18,8 +18,8 @@ module Blog
     private
 
     def save_and_respond_with_comment
-      self.location = post_path(post) if comment.save
-      respond_with comment, location: location
+      comment.save
+      respond_with comment, location: post_path(post)
     end
 
     def comment_params
