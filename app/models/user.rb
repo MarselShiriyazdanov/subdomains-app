@@ -1,14 +1,11 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable, :confirmable,
-    :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :rememberable
 
   validates :company, presence: true
 
   belongs_to :company
   has_many :posts
   has_many :ratings
-
-  accepts_nested_attributes_for :company
 
   def self.find_for_authentication(warden_conditions)
     company = Company.where(name: warden_conditions[:subdomain])

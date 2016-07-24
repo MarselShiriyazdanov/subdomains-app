@@ -9,14 +9,19 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
 
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users
+  resource :registrations
 
   constraints(ApexDomain) do
     get "/", to: "pages#home"
+    get "sign_up", to: "registrations#new", register_into_company: false
+    post "sign_up", to: "registrations#create", register_into_company: false
   end
 
   constraints(Subdomain) do
-    authenticate :user do
+    get "sign_up", to: "registrations#new", register_into_company: true
+    post "sign_up", to: "registrations#create", register_into_company: true
+    authenticated :user do
       get "/", to: "companies#show"
 
       scope module: "blog" do

@@ -9,7 +9,6 @@ module Authorization
   private
 
   def user_not_authorized
-    # let's redirect to www because I don't have naked domains configured at heroku
-    redirect_to(root_url(subdomain: "www"), alert: t("flash.authorizations.not_authorized_error"))
+    redirect_to(root_url(subdomain: current_user.company.name), alert: t("flash.authorizations.not_authorized_error"))
   end
 end
