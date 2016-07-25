@@ -7,7 +7,7 @@ feature "Sign Up" do
   let(:registered_user) { User.find_by_email(user_attributes[:email]) }
   let(:company_name) { attributes_for(:company)[:name] }
 
-  scenario "Visitor signs up" do
+  scenario "Visitor signs up with valid user data" do
     visit sign_up_path
 
     fill_form(:user, user_attributes)
@@ -17,5 +17,16 @@ feature "Sign Up" do
 
     expect(page.current_url).to include(company_name)
     expect(page).to have_content "#{company_name} blog"
+  end
+
+  scenario "Visitor signs up with invalid user data" do
+    visit sign_up_path
+
+    fill_form(:user, user_attributes.except(:first_name))
+    fill_in("Company name", with: company_name)
+
+    click_button "Sign up"
+
+    expect(page).to have_content "can't be blank"
   end
 end

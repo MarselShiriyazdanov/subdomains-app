@@ -5,12 +5,16 @@ class RegistrationForm
 
   validates :password, confirmation: true
   validates :first_name, :last_name, :email, :password, :password_confirmation, presence: true
-  validate :uniq_company_name, unless: :company_user
+  validate :uniq_company_name, :company_name_presence, unless: :company_user
 
   def attributes=(attributes)
     attributes.each do |key, value|
       public_send "#{key}=", value
     end
+  end
+
+  def company_name_presence
+    errors.add(:company_name, I18n.t("registration_form.company_blank")) if company_name.blank?
   end
 
   def uniq_company_name
