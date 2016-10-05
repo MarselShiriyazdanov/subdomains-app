@@ -18,10 +18,11 @@ Rails.application.routes.draw do
   constraints(Subdomain) do
     get "sign_up", to: "registrations#new", register_into_company: true
     post "sign_up", to: "registrations#create", register_into_company: true
-    authenticated :user do
-      get "/", to: "companies#show"
 
+    authenticated :user do
       scope module: "blog" do
+        get "/", to: "companies#show"
+
         resources :posts, except: :destroy do
           resources :comments, except: :destroy
           resources :ratings, only: :create
