@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :users
-    resources :posts
-    resources :comments
-    resources :ratings
-    resources :companies
+    %i(users posts comments ratings companies).each do |dashboard_resource|
+      resources dashboard_resource
+    end
 
     root to: "users#index"
   end
