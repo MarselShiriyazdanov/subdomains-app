@@ -1,5 +1,5 @@
 module Blog
-  class CommentsController < ApplicationController
+  class CommentsController < Blog::ApplicationController
     expose_decorated(:posts) { current_user.company.posts }
     expose_decorated(:post, ancestor: :posts)
     expose_decorated(:comments) { post.comments }

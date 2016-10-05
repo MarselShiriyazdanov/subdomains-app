@@ -1,5 +1,5 @@
 module Blog
-  class UsersController < ApplicationController
+  class UsersController < Blog::ApplicationController
     expose_decorated(:users) { SearchUsers.call(company: current_user.company, search_params: search_params).users }
 
     private
