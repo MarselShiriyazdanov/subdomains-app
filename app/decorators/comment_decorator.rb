@@ -1,3 +1,3 @@
 class CommentDecorator < ApplicationDecorator
-  delegate_all
+  delegate :text
 end

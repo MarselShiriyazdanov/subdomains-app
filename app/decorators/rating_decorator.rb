@@ -1,3 +1,3 @@
 class RatingDecorator < ApplicationDecorator
-  delegate_all
+  delegate :value
 end

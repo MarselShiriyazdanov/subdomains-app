@@ -1,5 +1,5 @@
 class CompanyDecorator < ApplicationDecorator
-  delegate_all
+  delegate :name
 
   def header
     "#{name} blog"

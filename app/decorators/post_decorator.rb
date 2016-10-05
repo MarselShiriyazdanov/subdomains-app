@@ -1,5 +1,5 @@
 class PostDecorator < ApplicationDecorator
-  delegate_all
+  delegate :id, :title, :text, :ratings, :errors
 
   def link_to_post
     h.link_to title, h.post_path(object)
