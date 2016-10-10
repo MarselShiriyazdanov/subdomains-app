@@ -1,6 +1,6 @@
 module Blog
   class CommentsController < Blog::ApplicationController
-    expose_decorated(:posts) { current_user.company.posts }
+    expose_decorated(:posts) { current_user.company_posts }
     expose_decorated(:post, ancestor: :posts)
     expose_decorated(:comments) { post.comments }
     expose_decorated(:comment, attributes: :comment_params, ancestor: :comments)

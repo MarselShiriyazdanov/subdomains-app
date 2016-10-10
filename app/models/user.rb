@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :ratings
 
+  delegate :posts, to: :company, prefix: true
+
   def self.find_for_authentication(warden_conditions)
     company = Company.where(name: warden_conditions[:subdomain])
     find_by(email: warden_conditions[:email], company: company)
